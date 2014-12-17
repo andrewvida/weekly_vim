@@ -1,0 +1,12 @@
+markdown: rdiscount
+pygments: true
+permalink: /posts/:title
+auto: true
+rdiscount:
+  extensions: [smart]
+
+name: Andrew Vida
+first_name: Andrew
+last_name: Vida
+twitter: andrewvida
+github: andrewvida/weekly_vim

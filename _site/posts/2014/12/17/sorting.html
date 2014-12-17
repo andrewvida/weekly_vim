@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/pygment_trac.css" media="screen">
+
+    <title>Weekly vim by andrewvida</title>
+  </head>
+
+  <body>
+    <header>
+    <div class="container">
+      <h1>Weekly vim</h1>
+      <h2></h2>
+    </div>
+    </header>
+    <div class="container">
+      <section class="content">
+        <h1>
+          <a href="/weekly_vim//posts/2014/12/17/sorting.html">Sort Lines Alphabetically</a>
+        </h1>
+
+        <section class="byline">
+        December 17, 2014
+        </section>
+
+        <p>Recently, I found myself inside the Gemfile of our project and saw this:</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">source</span> <span class="s1">&#39;https://rubygems.org&#39;</span>
+
+<span class="n">ruby</span> <span class="s1">&#39;2.1.4&#39;</span>
+
+<span class="n">gem</span> <span class="s1">&#39;rails&#39;</span><span class="p">,</span> <span class="s1">&#39;4.0.5&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;pg&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;jbuilder&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 1.2&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;faker&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;awesome_print&#39;</span><span class="p">,</span> <span class="ss">:require</span> <span class="o">=&gt;</span> <span class="s1">&#39;ap&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;activeadmin&#39;</span><span class="p">,</span> <span class="ss">github</span><span class="p">:</span> <span class="s1">&#39;gregbell/active_admin&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;cancan&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;minitest-rails&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;timecop&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;ejs&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;uglifier&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;puma&#39;</span></code></pre></div>
+
+<p>At first I was cutting lines and alphabetizing them myself.  Then it dawned on me!  I bet I can do this with Vim!</p>
+
+<p>To do this, first select the lines you wish to sort:</p>
+
+<div class="highlight"><pre><code class="language-vim" data-lang="vim">Shift <span class="p">+</span> V</code></pre></div>
+
+<p>Then, use the <code>sort</code> function:</p>
+
+<div class="highlight"><pre><code class="language-vim" data-lang="vim"><span class="p">:</span><span class="k">sort</span></code></pre></div>
+
+<p>Voila!</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">source</span> <span class="s1">&#39;https://rubygems.org&#39;</span>
+
+<span class="n">ruby</span> <span class="s1">&#39;2.1.4&#39;</span>
+
+<span class="n">gem</span> <span class="s1">&#39;activeadmin&#39;</span><span class="p">,</span> <span class="ss">github</span><span class="p">:</span> <span class="s1">&#39;gregbell/active_admin&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;awesome_print&#39;</span><span class="p">,</span> <span class="ss">:require</span> <span class="o">=&gt;</span> <span class="s1">&#39;ap&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;cancan&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;ejs&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;faker&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;jbuilder&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 1.2&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;minitest-rails&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;pg&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;puma&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;rails&#39;</span><span class="p">,</span> <span class="s1">&#39;4.0.5&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;timecop&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;uglifier&#39;</span></code></pre></div>
+
+<p>For more detailed info, see: </p>
+
+<div class="highlight"><pre><code class="language-vim" data-lang="vim"><span class="p">:</span>help <span class="k">sort</span></code></pre></div>
+
+
+
+        <a href="/weekly_vim/" class="btn">Back</a>
+      </section>
+    </div>
+  </body>
+</html>
