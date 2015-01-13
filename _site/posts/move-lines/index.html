@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/pygment_trac.css" media="screen">
+
+    <title>Weekly vim by andrewvida</title>
+  </head>
+
+  <body>
+    <header>
+    <div class="container">
+      <h1>Weekly vim</h1>
+      <h2></h2>
+    </div>
+    </header>
+    <div class="container">
+      <section class="content">
+        <h1>
+          <a href="/weekly_vim//posts/move-lines">Move Lines Up/Down</a>
+        </h1>
+
+        <section class="byline">
+        January 13, 2015
+        </section>
+
+        <p>For the past couple years I&rsquo;ve floated back and forth between Vim and other editors, such as Sublime Text 2 and GitHub&rsquo;s Atom editor.  One of the things that I really liked, that Sublime Text and Atom had was the ability to instantly move lines up and down.</p>
+
+<p><img src="/weekly_vim/images/posts/move_lines/atom_move_lines.gif" alt="Atom Move" /></p>
+
+<p>My usual Vim worflow for this, is to do <code>ddp</code>, which deletes the line and stores it in the default register and pastes from the default register.</p>
+
+<p><img src="/weekly_vim/images/posts/move_lines/vim_ddp.gif" alt="Vim ddp" /></p>
+
+<p>A better solution is to use the <a href="https://github.com/tpope/vim-unimpaired">unimpared</a> plugin by Tim Pope.  We can use the exchange <code>[e</code> and <code>]e</code> mappings to &lsquo;exchange&rsquo; the current line with the one above it or below it.</p>
+
+<p>Add these mappings to your <code>.vimrc</code>:</p>
+
+<pre><code class="bash">" Sort single lines
+nmap &lt;C-Up&gt; [e
+nmap &lt;C-Down&gt; ]e
+
+" Sort multiple lines
+vmap &lt;C-Up&gt; [egv
+vmap &lt;C-Down&gt; ]egv
+</code></pre>
+
+<p>This will enable moving of single and multiple lines using unimpared.</p>
+
+<p><img src="/weekly_vim/images/posts/move_lines/vim_move.gif" alt="Vim move" /></p>
+
+<p>Note: If you are on a Mac and when you press <code>control + up/down</code> and it opens Apple Mission Control, you&rsquo;ll have to change your OS X keymappings.</p>
+
+<p>If you are using tmux, you will also have to set the tmux window option <code>xterm-keys</code> so that tmux will pass these keys through.</p>
+
+<p>To do that, in your <code>.tmux.conf</code>, add:</p>
+
+<pre><code class="bash">set-window-option -g xterm-keys on
+</code></pre>
+
+<p>and in your <code>.vimrc</code>, add:</p>
+
+<pre><code class="bash">if &amp;term =~ '^screen'
+    " tmux will send xterm-style keys when its xterm-keys option is on
+    execute "set &lt;xUp&gt;=\e[1;*A"
+    execute "set &lt;xDown&gt;=\e[1;*B"
+    execute "set &lt;xRight&gt;=\e[1;*C"
+    execute "set &lt;xLeft&gt;=\e[1;*D"
+endif
+</code></pre>
+
+
+        <a href="/weekly_vim/" class="btn">Back</a>
+      </section>
+    </div>
+  </body>
+</html>
